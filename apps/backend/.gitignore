@@ -5,6 +5,22 @@ build/
 dist/
 wheels/
 *.egg-info
+.pytest_cache/
+.ruff_cache/
 
 # Virtual environments
-.venv
+.venv/
+venv/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Local storage and database files
+storage/
+*.db
+*.sqlite
+*.log
+*.safetensors
+*.pte
