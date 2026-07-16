@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 from typing import List, Dict
 import torch
 from safetensors.torch import load_file
-from pulse_fl.schemas.db_models import ClientContribution
+from better_pulse.schemas.db_models import ClientContribution
 
 class AggregationStrategy(ABC):
     """

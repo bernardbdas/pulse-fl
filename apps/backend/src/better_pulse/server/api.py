@@ -11,12 +11,12 @@ from fastapi.responses import FileResponse
 from sqlmodel import Session, select
 from safetensors.torch import save_file, load_file
 
-from pulse_fl.database import get_session_dependency, DatabaseConnectionManager
-from pulse_fl.config import settings
-from pulse_fl.schemas.db_models import Client, FLRound, ClientContribution, GlobalModelHistory, SignalSession, AnomalyAlert
-from pulse_fl.repositories import ClientRepository, RoundRepository, ContributionRepository, AlertRepository
-from pulse_fl.aggregation.strategy import FedAvgStrategy
-from pulse_fl.server.websocket_manager import websocket_manager
+from better_pulse.database import get_session_dependency, DatabaseConnectionManager
+from better_pulse.config import settings
+from better_pulse.schemas.db_models import Client, FLRound, ClientContribution, GlobalModelHistory, SignalSession, AnomalyAlert
+from better_pulse.repositories import ClientRepository, RoundRepository, ContributionRepository, AlertRepository
+from better_pulse.aggregation.strategy import FedAvgStrategy
+from better_pulse.server.websocket_manager import websocket_manager
 
 router = APIRouter()
 
@@ -55,7 +55,7 @@ def aggregate_round_background(round_number: int):
             # 3. Export to ExecuTorch format (.pte) for the next round
             pte_path = settings.GLOBAL_MODELS_DIR / f"global_model_round_{next_round_number}.pte"
             try:
-                from pulse_fl.models.factory import ModelFactory
+                from better_pulse.models.factory import ModelFactory
                 model = ModelFactory.create_model("ECGNet")
                 model.load_state_dict(aggregated_weights)
                 model.eval()
@@ -316,7 +316,7 @@ Keep the tone professional, objective, and medically precise. Limit the response
         # Send emergency email alert to registered contact
         client_record = client_repo.get_by_id(alert.client_id)
         if client_record and client_record.emergency_email:
-            from pulse_fl.services.notification_service import NotificationService
+            from better_pulse.services.notification_service import NotificationService
             NotificationService.send_emergency_email(
                 recipient_email=client_record.emergency_email,
                 client_id=alert.client_id,
@@ -357,7 +357,7 @@ async def stream_signals(websocket: WebSocket, client_id: str):
         model = None
         if model_path.exists():
             try:
-                from pulse_fl.models.factory import ModelFactory
+                from better_pulse.models.factory import ModelFactory
                 model = ModelFactory.create_model("ECGNet")
                 model.load_state_dict(load_file(str(model_path)))
                 model.eval()

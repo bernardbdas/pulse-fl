@@ -181,7 +181,7 @@ export default function App() {
       <ScrollView contentContainerStyle={styles.container}>
         {/* Header */}
         <View style={styles.header}>
-          <Text style={styles.title}>Pulse-FL Node</Text>
+          <Text style={styles.title}>Better-Pulse Node</Text>
           <Text style={styles.subtitle}>On-Device Wearable ECG Trainer</Text>
         </View>
 

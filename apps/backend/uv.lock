@@ -33,6 +33,39 @@ wheels = [
 ]
 
 [[package]]
+name = "better-pulse"
+version = "0.1.0"
+source = { editable = "." }
+dependencies = [
+    { name = "fastapi" },
+    { name = "httpx" },
+    { name = "numpy" },
+    { name = "psycopg2-binary" },
+    { name = "pydantic-settings" },
+    { name = "python-multipart" },
+    { name = "safetensors" },
+    { name = "sqlmodel" },
+    { name = "torch" },
+    { name = "uvicorn" },
+    { name = "websockets" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "fastapi", specifier = ">=0.139.0" },
+    { name = "httpx", specifier = ">=0.28.1" },
+    { name = "numpy", specifier = ">=2.5.1" },
+    { name = "psycopg2-binary", specifier = ">=2.9.12" },
+    { name = "pydantic-settings", specifier = ">=2.14.2" },
+    { name = "python-multipart", specifier = ">=0.0.32" },
+    { name = "safetensors", specifier = ">=0.8.0" },
+    { name = "sqlmodel", specifier = ">=0.0.39" },
+    { name = "torch", specifier = ">=2.13.0" },
+    { name = "uvicorn", specifier = ">=0.51.0" },
+    { name = "websockets", specifier = ">=16.1" },
+]
+
+[[package]]
 name = "certifi"
 version = "2026.6.17"
 source = { registry = "https://pypi.org/simple" }
@@ -564,39 +597,6 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/56/ad/44b06659949b243ae10112cd3b20a197f9bf3e81d5651379b9eb889bfaad/psycopg2_binary-2.9.12-cp314-cp314-musllinux_1_2_riscv64.whl", hash = "sha256:77b348775efd4cdab410ec6609d81ccecd1139c90265fa583a7255c8064bc03d", size = 3048977, upload-time = "2026-04-20T23:35:41.806Z" },
     { url = "https://files.pythonhosted.org/packages/1d/f2/10a1bcebadb6aa55e280e1f58975c36a7b560ea525184c7aa4064c466633/psycopg2_binary-2.9.12-cp314-cp314-musllinux_1_2_x86_64.whl", hash = "sha256:527e6342b3e44c2f0544f6b8e927d60de7f163f5723b8f1dfa7d2a84298738cd", size = 3351466, upload-time = "2026-04-20T23:35:43.993Z" },
     { url = "https://files.pythonhosted.org/packages/20/be/b732c8418ffa5bcfda002890f5dc4c869fc17db66ff11f53b17cfe44afc0/psycopg2_binary-2.9.12-cp314-cp314-win_amd64.whl", hash = "sha256:f12ae41fcafadb39b2785e64a40f9db05d6de2ac114077457e0e7c597f3af980", size = 2848762, upload-time = "2026-04-20T23:35:46.421Z" },
-]
-
-[[package]]
-name = "pulse-fl"
-version = "0.1.0"
-source = { editable = "." }
-dependencies = [
-    { name = "fastapi" },
-    { name = "httpx" },
-    { name = "numpy" },
-    { name = "psycopg2-binary" },
-    { name = "pydantic-settings" },
-    { name = "python-multipart" },
-    { name = "safetensors" },
-    { name = "sqlmodel" },
-    { name = "torch" },
-    { name = "uvicorn" },
-    { name = "websockets" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "fastapi", specifier = ">=0.139.0" },
-    { name = "httpx", specifier = ">=0.28.1" },
-    { name = "numpy", specifier = ">=2.5.1" },
-    { name = "psycopg2-binary", specifier = ">=2.9.12" },
-    { name = "pydantic-settings", specifier = ">=2.14.2" },
-    { name = "python-multipart", specifier = ">=0.0.32" },
-    { name = "safetensors", specifier = ">=0.8.0" },
-    { name = "sqlmodel", specifier = ">=0.0.39" },
-    { name = "torch", specifier = ">=2.13.0" },
-    { name = "uvicorn", specifier = ">=0.51.0" },
-    { name = "websockets", specifier = ">=16.1" },
 ]
 
 [[package]]

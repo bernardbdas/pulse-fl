@@ -28,5 +28,5 @@ simulate-client client_id="device_watch_01" samples="40" epochs="3":
 
 # Clear local SQLite databases, global models, and temporary files
 clean:
-    rm -f storage/pulse_fl.db storage/global_models/* storage/client_updates/*
+    rm -f storage/better_pulse.db storage/global_models/* storage/client_updates/*
     rm -f /tmp/global_model_r1_*.safetensors /tmp/client_update_r1_*.safetensors

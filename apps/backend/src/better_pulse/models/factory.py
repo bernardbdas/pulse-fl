@@ -1,8 +1,8 @@
 from pathlib import Path
 import torch
 from safetensors.torch import save_file
-from pulse_fl.config import settings
-from pulse_fl.models.ecg_net import ECGNet
+from better_pulse.config import settings
+from better_pulse.models.ecg_net import ECGNet
 
 class ModelFactory:
     """

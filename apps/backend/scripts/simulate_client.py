@@ -16,7 +16,7 @@ import torch.nn as nn
 import torch.optim as optim
 from safetensors.torch import save_file, load_file
 
-from pulse_fl.models.ecg_net import ECGNet
+from better_pulse.models.ecg_net import ECGNet
 from scripts.generate_mock_data import create_synthetic_dataset
 
 def get_json_response(url: str, data: bytes = None) -> dict:

@@ -1,7 +1,7 @@
 from datetime import datetime, timezone
 from typing import Optional, List
 from sqlmodel import Session, select
-from pulse_fl.schemas.db_models import FLRound, GlobalModelHistory
+from better_pulse.schemas.db_models import FLRound, GlobalModelHistory
 
 class RoundRepository:
     """

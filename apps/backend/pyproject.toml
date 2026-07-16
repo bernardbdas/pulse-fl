@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "pulse-fl"
+name = "better-pulse"
 version = "0.1.0"
 description = "Federated Learning & Wearable Cardiac Anomaly Monitoring Framework"
 readme = "README.md"
@@ -23,7 +23,7 @@ dependencies = [
 ]
 
 [project.scripts]
-pulse-fl = "pulse_fl.main:main"
+better-pulse = "better_pulse.main:main"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/pulse_fl"]
+packages = ["src/better_pulse"]

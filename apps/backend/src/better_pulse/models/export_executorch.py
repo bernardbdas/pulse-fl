@@ -1,7 +1,7 @@
 from pathlib import Path
 import torch
-from pulse_fl.config import settings
-from pulse_fl.models.factory import ModelFactory
+from better_pulse.config import settings
+from better_pulse.models.factory import ModelFactory
 
 def export_to_executorch(output_path: Path):
     """

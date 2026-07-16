@@ -2,7 +2,7 @@ services:
   # 1. Shared PostgreSQL Database Storage
   db:
     image: docker.io/library/postgres:16-alpine
-    container_name: pulse_fl_db
+    container_name: better_pulse_db
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: pulsepass
@@ -22,7 +22,7 @@ services:
     build:
       context: ./apps/backend
       dockerfile: Dockerfile
-    container_name: pulse_fl_backend
+    container_name: better_pulse_backend
     depends_on:
       db:
         condition: service_healthy
@@ -43,7 +43,7 @@ services:
     build:
       context: ./apps/mobile
       dockerfile: Dockerfile
-    container_name: pulse_fl_mobile
+    container_name: better_pulse_mobile
     depends_on:
       - backend
     ports:

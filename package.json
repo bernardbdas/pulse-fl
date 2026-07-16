@@ -1,5 +1,5 @@
 {
-  "name": "pulse-fl",
+  "name": "better-pulse",
   "version": "1.0.0",
   "private": true,
   "workspaces": [
@@ -7,7 +7,7 @@
   ],
   "scripts": {
     "setup": "uv sync --project apps/backend && npm install --prefix apps/mobile",
-    "dev:backend": "uv run --project apps/backend uvicorn pulse_fl.main:app --host 0.0.0.0 --port 8000 --reload",
+    "dev:backend": "uv run --project apps/backend uvicorn better_pulse.main:app --host 0.0.0.0 --port 8000 --reload",
     "dev:mobile": "npm run start --prefix apps/mobile",
     "dev": "concurrently \"npm run dev:backend\" \"npm run dev:mobile\" --names \"SERVER,CLIENT\" --prefix-colors \"cyan,magenta\""
   },

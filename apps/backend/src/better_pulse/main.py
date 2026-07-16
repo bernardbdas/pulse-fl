@@ -4,13 +4,13 @@ from fastapi import FastAPI, Depends
 from fastapi.responses import HTMLResponse
 from sqlmodel import Session, select
 
-from pulse_fl.config import settings
-from pulse_fl.database import DatabaseConnectionManager, get_session_dependency
-from pulse_fl.schemas.db_models import Client, FLRound, GlobalModelHistory, SignalSession, AnomalyAlert
-from pulse_fl.repositories import RoundRepository, ClientRepository, AlertRepository
-from pulse_fl.server.api import router as api_router
-from pulse_fl.models.factory import ModelFactory
-from pulse_fl.models.export_executorch import export_to_executorch
+from better_pulse.config import settings
+from better_pulse.database import DatabaseConnectionManager, get_session_dependency
+from better_pulse.schemas.db_models import Client, FLRound, GlobalModelHistory, SignalSession, AnomalyAlert
+from better_pulse.repositories import RoundRepository, ClientRepository, AlertRepository
+from better_pulse.server.api import router as api_router
+from better_pulse.models.factory import ModelFactory
+from better_pulse.models.export_executorch import export_to_executorch
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -41,10 +41,10 @@ async def lifespan(app: FastAPI):
             print("[STARTUP] Seeding Round 0 complete. Server is ready.")
             
     yield
-    print("[SHUTDOWN] Stopping Pulse-FL Server...")
+    print("[SHUTDOWN] Stopping Better-Pulse Server...")
 
 app = FastAPI(
-    title="Pulse-FL Coordinator",
+    title="Better-Pulse Coordinator",
     description="Federated Learning & Wearable Cardiac Anomaly Monitoring Framework",
     version="0.1.0",
     lifespan=lifespan
@@ -81,7 +81,7 @@ def serve_dashboard(session: Session = Depends(get_session_dependency)):
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Pulse-FL Wearable Dashboard</title>
+        <title>Better-Pulse Wearable Dashboard</title>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <style>
@@ -378,7 +378,7 @@ def serve_dashboard(session: Session = Depends(get_session_dependency)):
         <div class="container">
             <header>
                 <div>
-                    <h1>Pulse-FL Wearables Coordinator</h1>
+                    <h1>Better-Pulse Wearables Coordinator</h1>
                     <p style="color: var(--text-secondary); margin: 0.5rem 0 0 0;">Real-Time Patient Anomaly Tracking & Federated Aggregator</p>
                 </div>
                 <div class="badge">Round {round_str} (OPEN)</div>
@@ -618,8 +618,8 @@ def serve_dashboard(session: Session = Depends(get_session_dependency)):
     return html_content
 
 def main():
-    print(f"[STARTUP] Launching Pulse-FL Server on {settings.HOST}:{settings.PORT}...")
-    uvicorn.run("pulse_fl.main:app", host=settings.HOST, port=settings.PORT, reload=True)
+    print(f"[STARTUP] Launching Better-Pulse Server on {settings.HOST}:{settings.PORT}...")
+    uvicorn.run("better_pulse.main:app", host=settings.HOST, port=settings.PORT, reload=True)
 
 if __name__ == "__main__":
     main()

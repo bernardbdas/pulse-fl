@@ -5,7 +5,7 @@ from pydantic_settings import BaseSettings
 
 class Settings(BaseSettings):
     # Base paths
-    # Since it is inside src/pulse_fl, resolve one extra level up
+    # Since it is inside src/better_pulse, resolve one extra level up
     BASE_DIR: Path = Path(__file__).resolve().parent.parent.parent.parent
     STORAGE_DIR: Path = BASE_DIR / "storage"
     
@@ -31,7 +31,7 @@ class Settings(BaseSettings):
     SMTP_PORT: int = 1025
     SMTP_USER: Optional[str] = None
     SMTP_PASSWORD: Optional[str] = None
-    SENDER_EMAIL: str = "alerts@pulse-fl.com"
+    SENDER_EMAIL: str = "alerts@better-pulse.com"
     
     # Model configuration
     ECG_INPUT_CHANNELS: int = 1
@@ -39,7 +39,7 @@ class Settings(BaseSettings):
     NUM_CLASSES: int = 2             # Normal vs Arrhythmia (binary classification)
 
     class Config:
-        env_prefix = "PULSE_FL_"
+        env_prefix = "BETTER_PULSE_"
         env_file = ".env"
         env_file_encoding = "utf-8"
 
@@ -48,7 +48,7 @@ settings = Settings()
 
 # Dynamic defaults if not provided in environment/.env
 if not settings.DATABASE_URL:
-    settings.DATABASE_URL = f"sqlite:///{settings.STORAGE_DIR}/pulse_fl.db"
+    settings.DATABASE_URL = f"sqlite:///{settings.STORAGE_DIR}/better_pulse.db"
 if not settings.GLOBAL_MODELS_DIR:
     settings.GLOBAL_MODELS_DIR = settings.STORAGE_DIR / "global_models"
 if not settings.CLIENT_UPDATES_DIR:

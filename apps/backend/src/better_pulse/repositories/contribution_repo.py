@@ -1,7 +1,7 @@
 from datetime import datetime, timezone
 from typing import Optional, List
 from sqlmodel import Session, select
-from pulse_fl.schemas.db_models import ClientContribution
+from better_pulse.schemas.db_models import ClientContribution
 
 class ContributionRepository:
     """

@@ -1,5 +1,5 @@
 from sqlmodel import SQLModel, create_engine, Session
-from pulse_fl.config import settings
+from better_pulse.config import settings
 
 class DatabaseConnectionManager:
     """

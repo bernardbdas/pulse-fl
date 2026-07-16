@@ -2,7 +2,7 @@ import os
 import smtplib
 from email.mime.text import MIMEText
 from pathlib import Path
-from pulse_fl.config import settings
+from better_pulse.config import settings
 
 class NotificationService:
     """
@@ -18,13 +18,13 @@ class NotificationService:
         activity_state: str,
         gemma_report: str
     ) -> bool:
-        subject = f"[URGENT] Pulse-FL Cardiac Alert - Arrhythmia Detected for Device {client_id}"
+        subject = f"[URGENT] Better-Pulse Cardiac Alert - Arrhythmia Detected for Device {client_id}"
         
-        body = f"""Pulse-FL Emergency Cardiac Telemetry Notification
+        body = f"""Better-Pulse Emergency Cardiac Telemetry Notification
 
 Dear Emergency Contact,
 
-This is an automated cardiac anomaly alert from the Pulse-FL wearable monitoring system.
+This is an automated cardiac anomaly alert from the Better-Pulse wearable monitoring system.
 
 Telemetry Details:
 - Device ID: {client_id}
@@ -42,7 +42,7 @@ Action Required:
 Please check on the patient immediately. If they are unresponsive or experiencing symptoms like chest pain, pressure, shortness of breath, or fainting, call emergency services immediately.
 
 Best regards,
-Pulse-FL Wearables Triage Coordinator
+Better-Pulse Wearables Triage Coordinator
 """
         sent_successfully = False
         if recipient_email:

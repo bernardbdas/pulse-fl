@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Pulse-FL Mobile",
-    "slug": "pulse-fl-mobile",
+    "name": "Better-Pulse Mobile",
+    "slug": "better-pulse-mobile",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -13,14 +13,14 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.pulsefl.mobile"
+      "bundleIdentifier": "com.betterpulse.mobile"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#0f172a"
       },
-      "package": "com.pulsefl.mobile"
+      "package": "com.betterpulse.mobile"
     },
     "web": {
       "favicon": "./assets/favicon.png"
