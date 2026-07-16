@@ -92,6 +92,16 @@ npm run dev
 * **FastAPI OpenAPI docs**: http://127.0.0.1:8000/docs
 * **Expo Metro Console**: Access developers tools, select simulators, or scan the QR code to test on physical devices.
 
+### 3. Unified Task Orchestration with Just
+For power users and multi-language developers, the monorepo provides a root [justfile](justfile) to execute common tasks easily (requires `just` installed on your system):
+* **List Tasks**: `just` or `just --list`
+* **Project Setup**: `just setup`
+* **Run Dev Servers**: `just dev`
+* **Docker Compose Up**: `just docker-up`
+* **Docker Compose Down**: `just docker-down`
+* **Run Telemetry Simulation**: `just test-signals`
+* **Run Client Simulation**: `just simulate-client <device_id> <samples> <epochs>`
+
 ---
 
 ## 🔗 Sub-project Guides
