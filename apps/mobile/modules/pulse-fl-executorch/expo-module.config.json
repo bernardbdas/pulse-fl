@@ -1,0 +1,16 @@
+{
+  "platforms": [
+    "ios",
+    "android"
+  ],
+  "ios": {
+    "modules": [
+      "PulseFlExecuTorchModule"
+    ]
+  },
+  "android": {
+    "modules": [
+      "com.pulsefl.executorch.PulseFlExecuTorchModule"
+    ]
+  }
+}

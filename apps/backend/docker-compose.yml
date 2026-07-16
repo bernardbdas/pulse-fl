@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  db:
+    image: docker.io/library/postgres:16-alpine
+    container_name: pulse_fl_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: pulsepass
+      POSTGRES_DB: pulse_fl
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d pulse_fl"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  web:
+    build: .
+    container_name: pulse_fl_web
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8000:8000"
+    environment:
+      - PULSE_FL_DATABASE_URL=postgresql://postgres:pulsepass@db:5432/pulse_fl
+      - PULSE_FL_HOST=0.0.0.0
+      - PULSE_FL_PORT=8000
+      - PULSE_FL_OLLAMA_API_URL=http://host.containers.internal:11434
+    extra_hosts:
+      - "host.containers.internal:host-gateway"
+    volumes:
+      - ./storage:/app/storage
+
+volumes:
+  postgres_data:

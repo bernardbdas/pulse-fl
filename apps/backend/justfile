@@ -1,0 +1,32 @@
+# Default target lists all tasks
+default:
+    @just --list
+
+# Run the coordinator server locally (uses local sqlite database)
+run-local:
+    uv run main.py
+
+# Launch PostgreSQL and backend containers using podman-compose
+up:
+    podman-compose up --build -d
+
+# Stop and remove orchestrated containers
+down:
+    podman-compose down
+
+# View real-time container log files
+logs:
+    podman-compose logs -f
+
+# Run WebSocket client simulating real-time ECG wearable streaming
+test-signals:
+    uv run scripts/test_websocket_stream.py
+
+# Execute client simulator for federated learning round updates
+simulate-client client_id="device_watch_01" samples="40" epochs="3":
+    uv run scripts/simulate_client.py --client-id {{client_id}} --samples {{samples}} --epochs {{epochs}}
+
+# Clear local SQLite databases, global models, and temporary files
+clean:
+    rm -f storage/pulse_fl.db storage/global_models/* storage/client_updates/*
+    rm -f /tmp/global_model_r1_*.safetensors /tmp/client_update_r1_*.safetensors
